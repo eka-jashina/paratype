@@ -1,0 +1,18 @@
+<article class="catalog__card catalog-section-card card">
+  <a class="catalog-section-card__link card__link" href="{{link}}">
+    <h3 class="catalog-section-card__title card__description">{{title}}</h3>
+    <img class="catalog-section-card__img card__img" src="img/content/catalog-sections/{{img}}.svg" width="{{img-width}}" height="{{img-height}}" alt="Пример начертания шрифта">
+    <div class="catalog-section-card__counts card__counts">
+      <span class="catalog-section-card__count catalog-section-card__count--all card__count card__count--all">
+        <span class="visually-hidden">Всего шрифтов в категории</span>
+        {{count-all}}
+      </span>
+      {{#if count-new}}
+        <span class="catalog-section-card__count catalog-section-card__count--new card__count card__count--new">
+          <span class="visually-hidden">Новых шрифтов в категории</span>
+          {{count-new}}
+        </span>
+      {{/if}}
+    </div>
+  </a>
+</article>

@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Гротески",
+    "link": "#",
+    "img": "grotesque",
+    "img-width": "102",
+    "img-height": "59",
+    "count-all": "340",
+    "count-new": "6"
+  },
+  {
+    "title": "Антиквы",
+    "link": "#",
+    "img": "antique",
+    "img-width": "95",
+    "img-height": "57",
+    "count-all": "89"
+  },
+    {
+    "title": "Брусковые",
+    "link": "#",
+    "img": "slab",
+    "img-width": "94",
+    "img-height": "55",
+    "count-all": "129",
+    "count-new": "2"
+  },
+    {
+    "title": "Акцидентные",
+    "link": "#",
+    "img": "accent",
+    "img-width": "65",
+    "img-height": "75",
+    "count-all": "278"
+  },
+    {
+    "title": "Рукописные",
+    "link": "#",
+    "img": "handwritten",
+    "img-width": "91",
+    "img-height": "96",
+    "count-all": "23"
+  },
+    {
+    "title": "Неалфавитные",
+    "link": "#",
+    "img": "non-alphabetic",
+    "img-width": "136",
+    "img-height": "63",
+    "count-all": "8"
+  },
+    {
+    "title": "Моноширинные",
+    "link": "#",
+    "img": "monospace",
+    "img-width": "76",
+    "img-height": "67",
+    "count-all": "280"
+  },
+    {
+    "title": "Исторические",
+    "link": "#",
+    "img": "historical",
+    "img-width": "93",
+    "img-height": "52",
+    "count-all": "56"
+  }
+]

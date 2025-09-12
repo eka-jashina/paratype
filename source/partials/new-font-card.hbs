@@ -1,0 +1,100 @@
+<article class="new-font-card card {{modifier}}" data-category="{{filter-category}}">
+  <a class="new-font-card__link card__link" href="{{link}}">
+    <span class="visually-hidden">Перейти к подробной информации о шрифте {{title}}</span>
+    <span class="new-font-card__hover-zone new-font-card__hover-zone--1" aria-hidden="true"></span>
+    <span class="new-font-card__hover-zone new-font-card__hover-zone--2" aria-hidden="true"></span>
+  </a>
+  <div class="new-font-card__information">
+    <div class="new-font-card__head">
+      <h3 class="new-font-card__title">{{title}}</h3>
+      <div class="new-font-card__badge">
+        <span class="new-font-card__category">{{category}}</span>
+        {{#if category-details}}
+          <span class="new-font-card__category-details">{{category-details}}</span>
+        {{/if}}
+      </div>
+    </div>
+    <div class="new-font-card__body">
+      <dl class="new-font-card__properties">
+        <div class="new-font-card__property new-font-card__property--format">
+          <dt class="visually-hidden">Формат</dt>
+          <dd class="new-font-card__text">{{format}}</dd>
+        </div>
+        <div class="new-font-card__property">
+          <dt class="new-font-card__text">начертаний</dt>
+          <dd class="new-font-card__text">{{styles}}</dd>
+        </div>
+        <div class="new-font-card__property">
+          <dt class="new-font-card__text">языки</dt>
+          <dd class="new-font-card__text">{{languages}}</dd>
+        </div>
+        <div class="new-font-card__property">
+          <dt class="visually-hidden">типографические группы</dt>
+          <dd class="new-font-card__text">{{typefaces}}</dd>
+        </div>
+      </dl>
+      <div class="new-font-card__price">
+        <span>От</span>
+        <span>{{price}} ₽</span>
+      </div>
+      <dl class="new-font-card__tags">
+        <dt>теги</dt>
+        <dd class="new-font-card__text">
+          <ul class="new-font-card__tags-list">
+            {{#each tags}}
+              <li class="new-font-card__tag">{{this}}</li>
+            {{/each}}
+          </ul>
+        </dd>
+      </dl>
+    </div>
+    <button class="new-font-card__favorite" type="button">
+      <span class="visually-hidden">Добавить шрифт в избранное</span>
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <use href="{{sprite "favorites"}}"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="new-font-card__pictures slider">
+    <input class="new-font-card__accordion-button" type="checkbox" name="font-card-accordion" {{#if default-open-on-mobile}}checked{{/if}}>
+<div class="slider__track new-font-card__slider">
+  <div class="new-font-card__img new-font-card__img--1 slider__slide">
+    <picture>
+      <source width="{{picture-width-desktop}}" height="{{picture-height-desktop}}" type="image/webp" media="(min-width: 391px)"
+        srcset="img/content/fonts/{{picture}}-desktop-1.webp 1x, img/content/fonts/{{picture}}-desktop-1@2x.webp 2x">
+      <source width="{{picture-width-mobile}}" height="{{picture-height-mobile}}" type="image/webp"
+        srcset="img/content/fonts/{{picture}}-mobile-1.webp 1x, img/content/fonts/{{picture}}-mobile-1@2x.webp 2x">
+      <source width="{{picture-width-desktop}}" height="{{picture-height-desktop}}" type="image/jpeg" media="(min-width: 391px)"
+        srcset="img/content/fonts/{{picture}}-desktop-1.jpg 1x, img/content/fonts/{{picture}}-desktop-1@2x.jpg 2x">
+      <img class="hero-slide__img" src="img/content/fonts/{{picture}}-mobile-1.jpg" srcset="img/content/fonts/{{picture}}-mobile-1@2x.jpg" width="{{picture-width-mobile}}"
+        height="{{picture-height-mobile}}" alt="Пример начертания шрифта" loading="lazy">
+    </picture>
+  </div>
+  <div class="new-font-card__img new-font-card__img--2 slider__slide">
+    <picture>
+      <source width="{{picture-width-desktop}}" height="{{picture-height-desktop}}" type="image/webp" media="(min-width: 391px)"
+        srcset="img/content/fonts/{{picture}}-desktop-2.webp 1x, img/content/fonts/{{picture}}-desktop-2@2x.webp 2x">
+      <source width="{{picture-width-mobile}}" height="{{picture-height-mobile}}" type="image/webp"
+        srcset="img/content/fonts/{{picture}}-mobile-2.webp 1x, img/content/fonts/{{picture}}-mobile-2@2x.webp 2x">
+      <source width="{{picture-width-desktop}}" height="{{picture-height-desktop}}" type="image/jpeg" media="(min-width: 391px)"
+        srcset="img/content/fonts/{{picture}}-desktop-2.jpg 1x, img/content/fonts/{{picture}}-desktop-2@2x.jpg 2x">
+      <img class="hero-slide__img" src="img/content/fonts/{{picture}}-mobile-2.jpg" srcset="img/content/fonts/{{picture}}-mobile-2@2x.jpg" width="{{picture-width-mobile}}"
+        height="{{picture-height-mobile}}" alt="Пример начертания шрифта" loading="lazy">
+    </picture>
+  </div>
+  <div class="new-font-card__img new-font-card__img--3 slider__slide">
+    <picture>
+      <source width="{{picture-width-desktop}}" height="{{picture-height-desktop}}" type="image/webp" media="(min-width: 391px)"
+        srcset="img/content/fonts/{{picture}}-desktop-3.webp 1x, img/content/fonts/{{picture}}-desktop-3@2x.webp 2x">
+      <source width="{{picture-width-mobile}}" height="{{picture-height-mobile}}" type="image/webp"
+        srcset="img/content/fonts/{{picture}}-mobile-3.webp 1x, img/content/fonts/{{picture}}-mobile-3@2x.webp 2x">
+      <source width="{{picture-width-desktop}}" height="{{picture-height-desktop}}" type="image/jpeg" media="(min-width: 391px)"
+        srcset="img/content/fonts/{{picture}}-desktop-3.jpg 1x, img/content/fonts/{{picture}}-desktop-3@2x.jpg 2x">
+      <img class="hero-slide__img" src="img/content/fonts/{{picture}}-mobile-3.jpg" srcset="img/content/fonts/{{picture}}-mobile-3@2x.jpg" width="{{picture-width-mobile}}"
+        height="{{picture-height-mobile}}" alt="Пример начертания шрифта" loading="lazy">
+    </picture>
+  </div>
+</div>
+    <div class="new-font-card__pagination slider__pagination"></div>
+  </div>
+</article>

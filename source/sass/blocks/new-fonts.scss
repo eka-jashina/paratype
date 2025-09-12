@@ -1,0 +1,156 @@
+.new-fonts {
+  padding: 12px 0 10px;
+
+  @media (max-width: $mobile) {
+    padding: 0;
+  }
+}
+
+.new-fonts__controls {
+  position: relative;
+
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+
+  @media (max-width: $mobile) {
+    gap: 10px;
+    padding-right: 20px;
+    margin-bottom: 17px;
+
+    border-radius: 10px;
+    border: 1px solid #ebebeb;
+  }
+}
+
+.new-fonts__categories-list {
+  @include list-reset;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (width <= 1200px) {
+    gap: 15px;
+  }
+
+  @media (max-width: $mobile) {
+    position: absolute;
+    top: 51px;
+    z-index: 5;
+
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 20px;
+    width: 100%;
+
+    background-color: $background-color-light;
+    border-radius: 10px;
+    border: 1px solid #ebebeb;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-30px);
+
+    transition: opacity $transition-default, transform $transition-default;
+  }
+}
+
+.new-fonts__filter.is-open .new-fonts__categories-list {
+  @media (max-width: $mobile) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}
+
+.new-fonts__category {
+  @include button-reset;
+  @include link-effects-primary;
+
+  min-height: 80px;
+
+  @media (max-width: $max-width) {
+    min-height: vw(80);
+  }
+}
+
+.new-fonts__category.is-active {
+  color: $text-main-color-light;
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    transform: scale(1);
+  }
+
+  @media (max-width: $mobile) {
+    color: inherit;
+  }
+}
+
+.new-fonts__categories-list:has(.new-fonts__category:hover) .new-fonts__category.is-active,
+.new-fonts__categories-list:has(.new-fonts__category:focus-visible) .new-fonts__category.is-active {
+  color: $text-main-color-dark;
+
+  &::before,
+  &::after {
+    transform: scale(0);
+  }
+}
+
+.new-fonts__sorting {
+  padding-top: 15px;
+
+  @media (max-width: $mobile) {
+    padding-top: 0;
+  }
+}
+
+.new-fonts__list {
+  @include list-reset;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0 -20px;
+
+  @media (max-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 8px;
+  }
+}
+
+.new-fonts__item:has(.new-font-card--large) {
+  grid-column: 1 / 3;
+}
+
+.new-fonts__filter-button {
+  display: none;
+
+  @media (max-width: $mobile) {
+    @include button-reset;
+
+    display: flex;
+    align-self: center;
+    align-items: center;
+    padding: 10px 20px;
+    width: 270px;
+    min-height: 50px;
+
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    background-image: url("/img/icons/filters-arrow.svg");
+    background-position: center right 20px;
+    background-repeat: no-repeat;
+    background-size: 10px 8px;
+    border-right: 1px solid #ebebeb;
+  }
+}

@@ -1,0 +1,12 @@
+<section class="catalog section">
+  <div class="container">
+    <h2 class="visually-hidden">Каталог шрифтов</h2>
+    <ul class="catalog__list scroll-container">
+      {{#each catalogSectionCards}}
+        <li class="catalog__item">
+          {{> catalog-section-card this}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

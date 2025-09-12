@@ -1,0 +1,17 @@
+[
+  {
+    "modifier": "banner--sale",
+    "link": "#",
+    "title": "30—50%",
+    "category": "Распродажа",
+    "count-all": "280",
+    "count-new": "45"
+  },
+  {
+    "modifier": "banner--bestsellers",
+    "link": "#",
+    "title": "PRAGMATICA NEXT",
+    "category": "Хиты продаж",
+    "count-all": "20"
+  }
+]

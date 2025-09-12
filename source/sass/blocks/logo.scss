@@ -1,0 +1,36 @@
+.logo {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-width: 369px;
+  min-height: 120px;
+
+  @media (max-width: $max-width) {
+    min-width: vw(369);
+  }
+
+  @media (max-width: $tablet) {
+    min-width: fit-content;
+    min-height: auto;
+  }
+}
+
+.logo__img {
+  position: relative;
+  top: -2px;
+}
+
+.logo__text {
+  position: absolute;
+  top: 18px;
+  right: 0;
+
+  font-size: 12px;
+  letter-spacing: 0.01em;
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
+}

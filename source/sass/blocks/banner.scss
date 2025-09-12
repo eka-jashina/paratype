@@ -1,0 +1,151 @@
+.banner__link {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+  min-height: 440px;
+
+  @media (max-width: $max-width) {
+    min-height: vw(440);
+  }
+
+  @media (max-width: $tablet) {
+    position: relative;
+
+    padding: 20px;
+    padding-left: 10px;
+    min-height: 300px;
+  }
+}
+
+.banner--bestsellers .banner__link {
+  background-image:
+    image-set(
+      url("/img/decor/banners/banner-bestsellers-background-desktop.webp")
+      type("image/webp") 1x,
+      url("/img/decor/banners/banner-bestsellers-background-desktop@2x.webp")
+      type("image/webp") 2x,
+      url("/img/decor/banners/banner-bestsellers-background-desktop.jpg")
+      type("image/jpg") 1x,
+      url("/img/decor/banners/banner-bestsellers-background-desktop@2x.jpg")
+      type("image/jpg") 2x
+    );
+
+  @media (max-width: $mobile) {
+    background-image:
+      image-set(
+        url("/img/decor/banners/banner-bestsellers-background-mobile.webp")
+        type("image/webp") 1x,
+        url("/img/decor/banners/banner-bestsellers-background-mobile@2x.webp")
+        type("image/webp") 2x,
+        url("/img/decor/banners/banner-bestsellers-background-mobile.jpg")
+        type("image/jpg") 1x,
+        url("/img/decor/banners/banner-bestsellers-background-mobile@2x.jpg")
+        type("image/jpg") 2x
+      );
+  }
+}
+
+.banner--sale .banner__link {
+  color: $text-secondary-color-light;
+
+  background-image:
+    image-set(
+      url("/img/decor/banners/banner-sale-background-desktop.webp")
+      type("image/webp") 1x,
+      url("/img/decor/banners/banner-sale-background-desktop@2x.webp")
+      type("image/webp") 2x,
+      url("/img/decor/banners/banner-sale-background-desktop.jpg")
+      type("image/jpg") 1x,
+      url("/img/decor/banners/banner-sale-background-desktop@2x.jpg")
+      type("image/jpg") 2x
+    );
+
+  @media (max-width: $mobile) {
+    background-image:
+      image-set(
+        url("/img/decor/banners/banner-sale-background-mobile.webp")
+        type("image/webp") 1x,
+        url("/img/decor/banners/banner-sale-background-mobile@2x.webp")
+        type("image/webp") 2x,
+        url("/img/decor/banners/banner-sale-background-mobile.jpg")
+        type("image/jpg") 1x,
+        url("/img/decor/banners/banner-sale-background-mobile@2x.jpg")
+        type("image/jpg") 2x
+      );
+  }
+}
+
+.banner__title {
+  place-self: center;
+  margin: 0;
+
+  font-size: 60px;
+  line-height: 40px;
+  font-family: 600;
+  color: $text-accent-color;
+  text-transform: uppercase;
+  text-align: center;
+
+  @media (max-width: $max-width) {
+    font-size: vw(60);
+    line-height: vw(40);
+  }
+
+  @media (max-width: $tablet) {
+    font-size: 50px;
+    line-height: 40px;
+  }
+}
+
+.banner--sale .banner__title {
+  padding-top: 13px;
+  font-stretch: 90%;
+
+  @media (max-width: $tablet) {
+    padding-top: 0;
+    padding-bottom: 42px;
+    padding-left: 7px;
+  }
+}
+
+.banner--bestsellers .banner__title {
+  max-width: 630px;
+  padding-top: 28px;
+
+  font-size: 120px;
+  line-height: 90px;
+  font-weight: 750;
+  font-stretch: 10%;
+
+  @media (max-width: $max-width) {
+    font-size: vw(120);
+    line-height: vw(90);
+  }
+
+  @media (max-width: $tablet) {
+    font-size: 90px;
+    line-height: 80px;
+  }
+}
+
+.banner__count--all {
+  @media (max-width: $tablet) {
+    height: 12px;
+  }
+}
+
+.banner__description {
+  @media (max-width: $tablet) {
+    position: absolute;
+    top: 11px;
+    left: 60px;
+
+    display: flex;
+    align-items: center;
+    padding: 0;
+    min-height: 25px;
+    max-width: 150px;
+
+    font-size: 14px;
+  }
+}

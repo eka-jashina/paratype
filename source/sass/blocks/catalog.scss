@@ -1,0 +1,23 @@
+.catalog__list {
+  @include list-reset;
+
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 20px;
+
+  @media (max-width: $tablet) {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    cursor: grab;
+  }
+}
+
+.catalog__list.active {
+  cursor: grabbing;
+}
+
+.catalog__list.active .catalog__item {
+  user-select: none;
+}
