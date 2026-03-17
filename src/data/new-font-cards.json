@@ -1,12 +1,12 @@
 [
   {
     "modifier": "new-font-card--large",
-    "default-open-on-mobile": false,
+    "defaultOpenOnMobile": false,
     "link": "#",
     "title": "PRAGMATICA Next VF",
-    "filter-category": "sale",
+    "filterCategory": "sale",
     "category": "распродажа",
-    "category-details": "30%",
+    "categoryDetails": "30%",
     "format": "opentype",
     "styles": "8",
     "languages": "92",
@@ -16,10 +16,10 @@
     "picture": "pragmatica"
   },
   {
-    "default-open-on-mobile": false,
+    "defaultOpenOnMobile": false,
     "link": "#",
     "title": "proxima nova",
-    "filter-category": "bestsellers",
+    "filterCategory": "bestsellers",
     "category": "бестселлер",
     "format": "truetype",
     "styles": "5",
@@ -31,10 +31,10 @@
   },
   {
     "modifier": "new-font-card--magistral",
-    "default-open-on-mobile": true,
+    "defaultOpenOnMobile": true,
     "link": "#",
     "title": "Magistral pt",
-    "filter-category": "recommend",
+    "filterCategory": "recommend",
     "category": "Рекомендуем",
     "format": "opentype",
     "styles": "8",

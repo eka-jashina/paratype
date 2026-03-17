@@ -1,12 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
 
-const props = Astro.props;
-const modifier = props.modifier || '';
-const filterCategory = props['filter-category'];
-const categoryDetails = props['category-details'];
-const defaultOpenOnMobile = props['default-open-on-mobile'];
-const pic = props.picture;
+const { modifier = '', filterCategory, categoryDetails, defaultOpenOnMobile, picture: pic, ...props } = Astro.props;
 
 const allImages = import.meta.glob('../assets/img/content/fonts/*@2x.jpg', { eager: true });
 

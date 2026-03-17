@@ -3,50 +3,50 @@
     "title": "Гротески",
     "link": "#",
     "img": "grotesque",
-    "count-all": "340",
-    "count-new": "6"
+    "countAll": "340",
+    "countNew": "6"
   },
   {
     "title": "Антиквы",
     "link": "#",
     "img": "antique",
-    "count-all": "89"
+    "countAll": "89"
   },
   {
     "title": "Брусковые",
     "link": "#",
     "img": "slab",
-    "count-all": "129",
-    "count-new": "2"
+    "countAll": "129",
+    "countNew": "2"
   },
   {
     "title": "Акцидентные",
     "link": "#",
     "img": "accent",
-    "count-all": "278"
+    "countAll": "278"
   },
   {
     "title": "Рукописные",
     "link": "#",
     "img": "handwritten",
-    "count-all": "23"
+    "countAll": "23"
   },
   {
     "title": "Неалфавитные",
     "link": "#",
     "img": "non-alphabetic",
-    "count-all": "8"
+    "countAll": "8"
   },
   {
     "title": "Моноширинные",
     "link": "#",
     "img": "monospace",
-    "count-all": "280"
+    "countAll": "280"
   },
   {
     "title": "Исторические",
     "link": "#",
     "img": "historical",
-    "count-all": "56"
+    "countAll": "56"
   }
 ]

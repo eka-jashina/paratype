@@ -1,8 +1,5 @@
 ---
-const props = Astro.props;
-const modifier = props.modifier || '';
-const countAll = props['count-all'];
-const countNew = props['count-new'];
+const { modifier = '', countAll, countNew, ...props } = Astro.props;
 ---
 
 <article class={`banners__item banner card slider__slide ${modifier}`}>
