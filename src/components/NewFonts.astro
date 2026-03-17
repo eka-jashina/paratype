@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import NewFontCard from './NewFontCard.astro';
 import newFonts from '../data/new-font-cards.json';
 ---
@@ -27,15 +28,11 @@ import newFonts from '../data/new-font-cards.json';
       <div class="new-fonts__sorting sorting">
         <button class="sorting__button sorting__button--active" type="button">
           <span class="visually-hidden">Сортировка плиткой</span>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <use href="/sprite.svg#tile"></use>
-          </svg>
+          <Icon name="tile" width="24" height="24" />
         </button>
         <button class="sorting__button" type="button">
           <span class="visually-hidden">Сортировка списком</span>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <use href="/sprite.svg#list"></use>
-          </svg>
+          <Icon name="list" width="24" height="24" />
         </button>
       </div>
     </div>

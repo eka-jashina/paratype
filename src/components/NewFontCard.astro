@@ -1,5 +1,6 @@
 ---
 import { getImage } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 
 const props = Astro.props;
 const modifier = props.modifier || '';
@@ -96,9 +97,7 @@ const slides = [slide1, slide2, slide3];
     </div>
     <button class="new-font-card__favorite" type="button">
       <span class="visually-hidden">Добавить шрифт в избранное</span>
-      <svg width="24" height="24" viewBox="0 0 24 24">
-        <use href="/sprite.svg#favorites"></use>
-      </svg>
+      <Icon name="favorites" width="24" height="24" />
     </button>
   </div>
   <div class="new-font-card__pictures slider">
