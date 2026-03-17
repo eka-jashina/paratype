@@ -13,11 +13,7 @@
     "typefaces": "гротеск",
     "price": "2 200",
     "tags": ["десктоп", "веб"],
-    "picture": "pragmatica",
-    "picture-width-desktop": "1580",
-    "picture-height-desktop": "800",
-    "picture-width-mobile": "370",
-    "picture-height-mobile": "300"
+    "picture": "pragmatica"
   },
   {
     "default-open-on-mobile": false,
@@ -31,11 +27,7 @@
     "typefaces": "гротески, моноширинные, акцидентные",
     "price": "1 500",
     "tags": ["мобильный"],
-    "picture": "proxima",
-    "picture-width-desktop": "785",
-    "picture-height-desktop": "600",
-    "picture-width-mobile": "370",
-    "picture-height-mobile": "300"
+    "picture": "proxima"
   },
   {
     "modifier": "new-font-card--magistral",
@@ -50,10 +42,6 @@
     "typefaces": "гротеск",
     "price": "2 200",
     "tags": ["десктоп", "веб"],
-    "picture": "magistral",
-    "picture-width-desktop": "785",
-    "picture-height-desktop": "600",
-    "picture-width-mobile": "370",
-    "picture-height-mobile": "300"
+    "picture": "magistral"
   }
 ]

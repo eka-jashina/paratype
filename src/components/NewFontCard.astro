@@ -7,12 +7,8 @@ const filterCategory = props['filter-category'];
 const categoryDetails = props['category-details'];
 const defaultOpenOnMobile = props['default-open-on-mobile'];
 const pic = props.picture;
-const pwd = Number(props['picture-width-desktop']);
-const phd = Number(props['picture-height-desktop']);
-const pwm = Number(props['picture-width-mobile']);
-const phm = Number(props['picture-height-mobile']);
 
-const allImages = import.meta.glob('../assets/img/content/fonts/*.{jpg,webp}', { eager: true });
+const allImages = import.meta.glob('../assets/img/content/fonts/*@2x.jpg', { eager: true });
 
 function getImg(name) {
   const img = allImages[`../assets/img/content/fonts/${name}`];
@@ -22,26 +18,28 @@ function getImg(name) {
   return img.default;
 }
 
-async function getSlideImages(slideNum) {
-  const desktopWebp1x = await getImage({ src: getImg(`${pic}-desktop-${slideNum}.webp`), format: 'webp' });
-  const desktopWebp2x = await getImage({ src: getImg(`${pic}-desktop-${slideNum}@2x.webp`), format: 'webp' });
-  const mobileWebp1x = await getImage({ src: getImg(`${pic}-mobile-${slideNum}.webp`), format: 'webp' });
-  const mobileWebp2x = await getImage({ src: getImg(`${pic}-mobile-${slideNum}@2x.webp`), format: 'webp' });
-  const desktopJpg1x = await getImage({ src: getImg(`${pic}-desktop-${slideNum}.jpg`), format: 'jpg' });
-  const desktopJpg2x = await getImage({ src: getImg(`${pic}-desktop-${slideNum}@2x.jpg`), format: 'jpg' });
-  const mobileJpg1x = await getImage({ src: getImg(`${pic}-mobile-${slideNum}.jpg`), format: 'jpg' });
-  const mobileJpg2x = await getImage({ src: getImg(`${pic}-mobile-${slideNum}@2x.jpg`), format: 'jpg' });
-
-  return { desktopWebp1x, desktopWebp2x, mobileWebp1x, mobileWebp2x, desktopJpg1x, desktopJpg2x, mobileJpg1x, mobileJpg2x };
+async function getVariants(src) {
+  const width1x = Math.round(src.width / 2);
+  const [webp2x, webp1x, jpg2x, jpg1x] = await Promise.all([
+    getImage({ src, format: 'webp' }),
+    getImage({ src, format: 'webp', width: width1x }),
+    getImage({ src, format: 'jpg' }),
+    getImage({ src, format: 'jpg', width: width1x }),
+  ]);
+  return { webp1x, webp2x, jpg1x, jpg2x, width: width1x, height: Math.round(src.height / 2) };
 }
 
-const [slide1, slide2, slide3] = await Promise.all([
-  getSlideImages(1),
-  getSlideImages(2),
-  getSlideImages(3),
-]);
+async function getSlideImages(slideNum) {
+  const desktopSrc = getImg(`${pic}-desktop-${slideNum}@2x.jpg`);
+  const mobileSrc = getImg(`${pic}-mobile-${slideNum}@2x.jpg`);
+  const [desktop, mobile] = await Promise.all([
+    getVariants(desktopSrc),
+    getVariants(mobileSrc),
+  ]);
+  return { desktop, mobile };
+}
 
-const slides = [slide1, slide2, slide3];
+const slides = await Promise.all([1, 2, 3].map(getSlideImages));
 ---
 
 <article class={`new-font-card card ${modifier}`} data-category={filterCategory}>
@@ -107,14 +105,19 @@ const slides = [slide1, slide2, slide3];
       {slides.map((s, i) => (
         <div class={`new-font-card__img new-font-card__img--${i + 1} slider__slide`}>
           <picture>
-            <source width={pwd} height={phd} type="image/webp" media="(min-width: 391px)"
-              srcset={`${s.desktopWebp1x.src} 1x, ${s.desktopWebp2x.src} 2x`} />
-            <source width={pwm} height={phm} type="image/webp"
-              srcset={`${s.mobileWebp1x.src} 1x, ${s.mobileWebp2x.src} 2x`} />
-            <source width={pwd} height={phd} type="image/jpeg" media="(min-width: 391px)"
-              srcset={`${s.desktopJpg1x.src} 1x, ${s.desktopJpg2x.src} 2x`} />
-            <img class="hero-slide__img" src={s.mobileJpg1x.src} srcset={`${s.mobileJpg2x.src} 2x`} width={pwm}
-              height={phm} alt="Пример начертания шрифта" loading="lazy" />
+            <source type="image/webp" media="(min-width: 391px)"
+              srcset={`${s.desktop.webp1x.src} 1x, ${s.desktop.webp2x.src} 2x`}
+              width={s.desktop.width} height={s.desktop.height} />
+            <source type="image/webp"
+              srcset={`${s.mobile.webp1x.src} 1x, ${s.mobile.webp2x.src} 2x`}
+              width={s.mobile.width} height={s.mobile.height} />
+            <source type="image/jpeg" media="(min-width: 391px)"
+              srcset={`${s.desktop.jpg1x.src} 1x, ${s.desktop.jpg2x.src} 2x`}
+              width={s.desktop.width} height={s.desktop.height} />
+            <img class="hero-slide__img" src={s.mobile.jpg1x.src}
+              srcset={`${s.mobile.jpg2x.src} 2x`}
+              width={s.mobile.width} height={s.mobile.height}
+              alt="Пример начертания шрифта" loading="lazy" />
           </picture>
         </div>
       ))}
