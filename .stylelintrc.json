@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "stylelint-config-htmlacademy",
+    "stylelint-config-standard-scss"
+  ],
+  "plugins": [
+    "stylelint-selector-bem-pattern"
+  ]
+}
