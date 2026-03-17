@@ -14,10 +14,5 @@ overrides:
   - files:
       - "*.astro"
     parser: astro-eslint-parser
-    parserOptions:
-      parser: "@typescript-eslint/parser"
-    globals:
-      ImageMetadata: readonly
-      Astro: readonly
     rules:
       no-unused-vars: warn

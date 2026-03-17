@@ -1,27 +1,6 @@
 ---
 import { getImage } from 'astro:assets';
 
-interface Props {
-  modifier?: string;
-  'default-open-on-mobile': boolean;
-  link: string;
-  title: string;
-  'filter-category': string;
-  category: string;
-  'category-details'?: string;
-  format: string;
-  styles: string;
-  languages: string;
-  typefaces: string;
-  price: string;
-  tags: string[];
-  picture: string;
-  'picture-width-desktop': string;
-  'picture-height-desktop': string;
-  'picture-width-mobile': string;
-  'picture-height-mobile': string;
-}
-
 const props = Astro.props;
 const modifier = props.modifier || '';
 const filterCategory = props['filter-category'];
@@ -33,15 +12,17 @@ const phd = Number(props['picture-height-desktop']);
 const pwm = Number(props['picture-width-mobile']);
 const phm = Number(props['picture-height-mobile']);
 
-const allImages = import.meta.glob<{ default: ImageMetadata }>('../assets/img/content/fonts/*.{jpg,webp}', { eager: true });
+const allImages = import.meta.glob('../assets/img/content/fonts/*.{jpg,webp}', { eager: true });
 
-function getImg(name: string) {
+function getImg(name) {
   const img = allImages[`../assets/img/content/fonts/${name}`];
-  if (!img) throw new Error(`Image not found: ${name}`);
+  if (!img) {
+    throw new Error(`Image not found: ${name}`);
+  }
   return img.default;
 }
 
-async function getSlideImages(slideNum: number) {
+async function getSlideImages(slideNum) {
   const desktopWebp1x = await getImage({ src: getImg(`${pic}-desktop-${slideNum}.webp`), format: 'webp' });
   const desktopWebp2x = await getImage({ src: getImg(`${pic}-desktop-${slideNum}@2x.webp`), format: 'webp' });
   const mobileWebp1x = await getImage({ src: getImg(`${pic}-mobile-${slideNum}.webp`), format: 'webp' });

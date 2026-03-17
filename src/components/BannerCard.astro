@@ -1,13 +1,4 @@
 ---
-interface Props {
-  modifier?: string;
-  link: string;
-  title: string;
-  category: string;
-  'count-all': string;
-  'count-new'?: string;
-}
-
 const props = Astro.props;
 const modifier = props.modifier || '';
 const countAll = props['count-all'];

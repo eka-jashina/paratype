@@ -1,19 +1,9 @@
 ---
-interface Props {
-  title: string;
-  link: string;
-  img: string;
-  'img-width': string;
-  'img-height': string;
-  'count-all': string;
-  'count-new'?: string;
-}
-
 const props = Astro.props;
 const countAll = props['count-all'];
 const countNew = props['count-new'];
 
-const images = import.meta.glob<{ default: ImageMetadata }>('../assets/img/content/catalog-sections/*.svg', { eager: true });
+const images = import.meta.glob('../assets/img/content/catalog-sections/*.svg', { eager: true });
 const imgSrc = images[`../assets/img/content/catalog-sections/${props.img}.svg`]?.default;
 ---
 
