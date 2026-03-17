@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import logoDesktop from '../assets/img/content/paratype-logo-desktop.svg';
 import logoTablet from '../assets/img/content/paratype-logo-tablet.svg';
 ---
@@ -9,7 +10,7 @@ import logoTablet from '../assets/img/content/paratype-logo-tablet.svg';
       <div class="header__logo logo">
         <picture>
           <source srcset={logoTablet.src} width="40" height="33" media="(max-width: 1023px)">
-          <img class="logo__img" src={logoDesktop.src} width="230" height="60" alt="Логотип компании Paratype">
+          <Image class="logo__img" src={logoDesktop} alt="Логотип компании Paratype" />
         </picture>
         <span class="logo__text">Основано в 1998</span>
       </div>

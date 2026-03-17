@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 const props = Astro.props;
 const countAll = props['count-all'];
 const countNew = props['count-new'];
@@ -11,7 +13,7 @@ const imgSrc = images[`../assets/img/content/catalog-sections/${props.img}.svg`]
   <a class="catalog-section-card__link card__link" href={props.link}>
     <h3 class="catalog-section-card__title card__description">{props.title}</h3>
     {imgSrc && (
-      <img class="catalog-section-card__img card__img" src={imgSrc.src} width={props['img-width']} height={props['img-height']} alt="Пример начертания шрифта">
+      <Image class="catalog-section-card__img card__img" src={imgSrc} alt="Пример начертания шрифта" />
     )}
     <div class="catalog-section-card__counts card__counts">
       <span class="catalog-section-card__count catalog-section-card__count--all card__count card__count--all">
