@@ -1,5 +1,6 @@
 [
   {
+    "id": "pragmatica",
     "modifier": "new-font-card--large",
     "defaultOpenOnMobile": false,
     "link": "#",
@@ -16,6 +17,7 @@
     "picture": "pragmatica"
   },
   {
+    "id": "proxima",
     "defaultOpenOnMobile": false,
     "link": "#",
     "title": "proxima nova",
@@ -30,6 +32,7 @@
     "picture": "proxima"
   },
   {
+    "id": "magistral",
     "modifier": "new-font-card--magistral",
     "defaultOpenOnMobile": true,
     "link": "#",

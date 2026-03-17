@@ -1,5 +1,6 @@
 [
   {
+    "id": "sale",
     "modifier": "banner--sale",
     "link": "#",
     "title": "30—50%",
@@ -8,6 +9,7 @@
     "countNew": "45"
   },
   {
+    "id": "bestsellers",
     "modifier": "banner--bestsellers",
     "link": "#",
     "title": "PRAGMATICA NEXT",

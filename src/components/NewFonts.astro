@@ -1,6 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import NewFontCard from './NewFontCard.astro';
-import newFonts from '../data/new-font-cards.json';
+
+const newFonts = await getCollection('fontCards');
 ---
 
 <section class="new-fonts section">
@@ -42,7 +44,7 @@ import newFonts from '../data/new-font-cards.json';
     <ul class="new-fonts__list">
       {newFonts.map((font) => (
         <li class="new-fonts__item">
-          <NewFontCard {...font} />
+          <NewFontCard {...font.data} />
         </li>
       ))}
     </ul>

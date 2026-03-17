@@ -1,5 +1,6 @@
 [
   {
+    "id": "grotesque",
     "title": "Гротески",
     "link": "#",
     "img": "grotesque",
@@ -7,12 +8,14 @@
     "countNew": "6"
   },
   {
+    "id": "antique",
     "title": "Антиквы",
     "link": "#",
     "img": "antique",
     "countAll": "89"
   },
   {
+    "id": "slab",
     "title": "Брусковые",
     "link": "#",
     "img": "slab",
@@ -20,30 +23,35 @@
     "countNew": "2"
   },
   {
+    "id": "accent",
     "title": "Акцидентные",
     "link": "#",
     "img": "accent",
     "countAll": "278"
   },
   {
+    "id": "handwritten",
     "title": "Рукописные",
     "link": "#",
     "img": "handwritten",
     "countAll": "23"
   },
   {
+    "id": "non-alphabetic",
     "title": "Неалфавитные",
     "link": "#",
     "img": "non-alphabetic",
     "countAll": "8"
   },
   {
+    "id": "monospace",
     "title": "Моноширинные",
     "link": "#",
     "img": "monospace",
     "countAll": "280"
   },
   {
+    "id": "historical",
     "title": "Исторические",
     "link": "#",
     "img": "historical",

@@ -1,6 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import CatalogSectionCard from './CatalogSectionCard.astro';
-import catalogSectionCards from '../data/catalog-section-cards.json';
+
+const catalogSectionCards = await getCollection('catalogSections');
 ---
 
 <section class="catalog section">
@@ -9,7 +11,7 @@ import catalogSectionCards from '../data/catalog-section-cards.json';
     <ul class="catalog__list scroll-container">
       {catalogSectionCards.map((card) => (
         <li class="catalog__item">
-          <CatalogSectionCard {...card} />
+          <CatalogSectionCard {...card.data} />
         </li>
       ))}
     </ul>

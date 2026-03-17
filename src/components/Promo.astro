@@ -1,6 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import BannerCard from './BannerCard.astro';
-import banners from '../data/banners.json';
+
+const banners = await getCollection('banners');
 ---
 
 <section class="promo section">
@@ -9,7 +11,7 @@ import banners from '../data/banners.json';
     <div class="slider">
       <div class="promo__banners banners slider__track">
         {banners.map((banner) => (
-          <BannerCard {...banner} />
+          <BannerCard {...banner.data} />
         ))}
       </div>
       <div class="slider__pagination"></div>
