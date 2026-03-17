@@ -1,4 +1,6 @@
-extends: htmlacademy/vanilla
+extends:
+  - htmlacademy/vanilla
+  - plugin:astro/recommended
 
 parserOptions:
   ecmaVersion: 2022
@@ -7,3 +9,15 @@ parserOptions:
 env:
   browser: true
   es2022: true
+
+overrides:
+  - files:
+      - "*.astro"
+    parser: astro-eslint-parser
+    parserOptions:
+      parser: "@typescript-eslint/parser"
+    globals:
+      ImageMetadata: readonly
+      Astro: readonly
+    rules:
+      no-unused-vars: warn
