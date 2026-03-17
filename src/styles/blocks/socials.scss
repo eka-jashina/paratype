@@ -1,0 +1,36 @@
+@use '../common' as *;
+
+.socials {
+  @include list-reset;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.socials__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+
+  background-color: $background-color-dark;
+  border-radius: 50%;
+
+  transition: background-color $transition-default, opacity $transition-default;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $background-color-accent;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+
+  &:disabled {
+    background-color: #999999;
+    pointer-events: none;
+  }
+}

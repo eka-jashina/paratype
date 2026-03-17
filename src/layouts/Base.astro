@@ -1,0 +1,38 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Студия шрифтов Paratype',
+  description = 'Шрифты Паратайпа и других студий в самом большом магазине шрифтов в России. Ищите шрифты в каталоге с подробными фильтрами и тестируйте перед покупкой.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <link rel="preload" fetchpriority="high" as="image" href="/img/decor/banners/banner-sale-background-mobile.webp" type="image/webp">
+    <link rel="preload" fetchpriority="high" as="image" href="/img/decor/banners/banner-sale-background-mobile@2x.webp" type="image/webp">
+    <link rel="preload" href="/fonts/pragmatica-next_vf.woff2" type="font/woff2" as="font" crossorigin="anonymous">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/favicons/apple.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+  </head>
+  <body class="body">
+    <slot />
+    <script>
+      import '../scripts/main.js';
+    </script>
+  </body>
+</html>
+
+<style lang="scss" is:global>
+  @use '../styles/style.scss';
+</style>

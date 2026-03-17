@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+  link: string;
+  img: string;
+  'img-width': string;
+  'img-height': string;
+  'count-all': string;
+  'count-new'?: string;
+}
+
+const props = Astro.props;
+const countAll = props['count-all'];
+const countNew = props['count-new'];
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/img/content/catalog-sections/*.svg', { eager: true });
+const imgSrc = images[`../assets/img/content/catalog-sections/${props.img}.svg`]?.default;
+---
+
+<article class="catalog__card catalog-section-card card">
+  <a class="catalog-section-card__link card__link" href={props.link}>
+    <h3 class="catalog-section-card__title card__description">{props.title}</h3>
+    {imgSrc && (
+      <img class="catalog-section-card__img card__img" src={imgSrc.src} width={props['img-width']} height={props['img-height']} alt="Пример начертания шрифта">
+    )}
+    <div class="catalog-section-card__counts card__counts">
+      <span class="catalog-section-card__count catalog-section-card__count--all card__count card__count--all">
+        <span class="visually-hidden">Всего шрифтов в категории</span>
+        {countAll}
+      </span>
+      {countNew && (
+        <span class="catalog-section-card__count catalog-section-card__count--new card__count card__count--new">
+          <span class="visually-hidden">Новых шрифтов в категории</span>
+          {countNew}
+        </span>
+      )}
+    </div>
+  </a>
+</article>

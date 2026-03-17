@@ -1,0 +1,143 @@
+---
+import { getImage } from 'astro:assets';
+
+interface Props {
+  modifier?: string;
+  'default-open-on-mobile': boolean;
+  link: string;
+  title: string;
+  'filter-category': string;
+  category: string;
+  'category-details'?: string;
+  format: string;
+  styles: string;
+  languages: string;
+  typefaces: string;
+  price: string;
+  tags: string[];
+  picture: string;
+  'picture-width-desktop': string;
+  'picture-height-desktop': string;
+  'picture-width-mobile': string;
+  'picture-height-mobile': string;
+}
+
+const props = Astro.props;
+const modifier = props.modifier || '';
+const filterCategory = props['filter-category'];
+const categoryDetails = props['category-details'];
+const defaultOpenOnMobile = props['default-open-on-mobile'];
+const pic = props.picture;
+const pwd = Number(props['picture-width-desktop']);
+const phd = Number(props['picture-height-desktop']);
+const pwm = Number(props['picture-width-mobile']);
+const phm = Number(props['picture-height-mobile']);
+
+const allImages = import.meta.glob<{ default: ImageMetadata }>('../assets/img/content/fonts/*.{jpg,webp}', { eager: true });
+
+function getImg(name: string) {
+  const img = allImages[`../assets/img/content/fonts/${name}`];
+  if (!img) throw new Error(`Image not found: ${name}`);
+  return img.default;
+}
+
+async function getSlideImages(slideNum: number) {
+  const desktopWebp1x = await getImage({ src: getImg(`${pic}-desktop-${slideNum}.webp`), format: 'webp' });
+  const desktopWebp2x = await getImage({ src: getImg(`${pic}-desktop-${slideNum}@2x.webp`), format: 'webp' });
+  const mobileWebp1x = await getImage({ src: getImg(`${pic}-mobile-${slideNum}.webp`), format: 'webp' });
+  const mobileWebp2x = await getImage({ src: getImg(`${pic}-mobile-${slideNum}@2x.webp`), format: 'webp' });
+  const desktopJpg1x = await getImage({ src: getImg(`${pic}-desktop-${slideNum}.jpg`), format: 'jpg' });
+  const desktopJpg2x = await getImage({ src: getImg(`${pic}-desktop-${slideNum}@2x.jpg`), format: 'jpg' });
+  const mobileJpg1x = await getImage({ src: getImg(`${pic}-mobile-${slideNum}.jpg`), format: 'jpg' });
+  const mobileJpg2x = await getImage({ src: getImg(`${pic}-mobile-${slideNum}@2x.jpg`), format: 'jpg' });
+
+  return { desktopWebp1x, desktopWebp2x, mobileWebp1x, mobileWebp2x, desktopJpg1x, desktopJpg2x, mobileJpg1x, mobileJpg2x };
+}
+
+const [slide1, slide2, slide3] = await Promise.all([
+  getSlideImages(1),
+  getSlideImages(2),
+  getSlideImages(3),
+]);
+
+const slides = [slide1, slide2, slide3];
+---
+
+<article class={`new-font-card card ${modifier}`} data-category={filterCategory}>
+  <a class="new-font-card__link card__link" href={props.link}>
+    <span class="visually-hidden">Перейти к подробной информации о шрифте {props.title}</span>
+    <span class="new-font-card__hover-zone new-font-card__hover-zone--1" aria-hidden="true"></span>
+    <span class="new-font-card__hover-zone new-font-card__hover-zone--2" aria-hidden="true"></span>
+  </a>
+  <div class="new-font-card__information">
+    <div class="new-font-card__head">
+      <h3 class="new-font-card__title">{props.title}</h3>
+      <div class="new-font-card__badge">
+        <span class="new-font-card__category">{props.category}</span>
+        {categoryDetails && (
+          <span class="new-font-card__category-details">{categoryDetails}</span>
+        )}
+      </div>
+    </div>
+    <div class="new-font-card__body">
+      <dl class="new-font-card__properties">
+        <div class="new-font-card__property new-font-card__property--format">
+          <dt class="visually-hidden">Формат</dt>
+          <dd class="new-font-card__text">{props.format}</dd>
+        </div>
+        <div class="new-font-card__property">
+          <dt class="new-font-card__text">начертаний</dt>
+          <dd class="new-font-card__text">{props.styles}</dd>
+        </div>
+        <div class="new-font-card__property">
+          <dt class="new-font-card__text">языки</dt>
+          <dd class="new-font-card__text">{props.languages}</dd>
+        </div>
+        <div class="new-font-card__property">
+          <dt class="visually-hidden">типографические группы</dt>
+          <dd class="new-font-card__text">{props.typefaces}</dd>
+        </div>
+      </dl>
+      <div class="new-font-card__price">
+        <span>От</span>
+        <span>{props.price} ₽</span>
+      </div>
+      <dl class="new-font-card__tags">
+        <dt>теги</dt>
+        <dd class="new-font-card__text">
+          <ul class="new-font-card__tags-list">
+            {props.tags.map((tag) => (
+              <li class="new-font-card__tag">{tag}</li>
+            ))}
+          </ul>
+        </dd>
+      </dl>
+    </div>
+    <button class="new-font-card__favorite" type="button">
+      <span class="visually-hidden">Добавить шрифт в избранное</span>
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <use href="/sprite.svg#favorites"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="new-font-card__pictures slider">
+    <input class="new-font-card__accordion-button" type="checkbox" name="font-card-accordion" checked={defaultOpenOnMobile}>
+    <div class="slider__track new-font-card__slider">
+      {slides.map((s, i) => (
+        <div class={`new-font-card__img new-font-card__img--${i + 1} slider__slide`}>
+          <picture>
+            <source width={pwd} height={phd} type="image/webp" media="(min-width: 391px)"
+              srcset={`${s.desktopWebp1x.src} 1x, ${s.desktopWebp2x.src} 2x`} />
+            <source width={pwm} height={phm} type="image/webp"
+              srcset={`${s.mobileWebp1x.src} 1x, ${s.mobileWebp2x.src} 2x`} />
+            <source width={pwd} height={phd} type="image/jpeg" media="(min-width: 391px)"
+              srcset={`${s.desktopJpg1x.src} 1x, ${s.desktopJpg2x.src} 2x`} />
+            <img class="hero-slide__img" src={s.mobileJpg1x.src} srcset={`${s.mobileJpg2x.src} 2x`} width={pwm}
+              height={phm} alt="Пример начертания шрифта" loading="lazy" />
+          </picture>
+        </div>
+      ))}
+    </div>
+    <div class="new-font-card__pagination slider__pagination"></div>
+  </div>
+</article>

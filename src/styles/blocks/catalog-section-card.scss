@@ -1,0 +1,68 @@
+@use '../common' as *;
+
+.catalog-section-card {
+  background-color: #ebebeb;
+}
+
+.catalog-section-card__link {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+
+  @media (max-width: $tablet) {
+    min-width: 105px;
+    min-height: 120px;
+  }
+}
+
+.catalog-section-card__img {
+  position: absolute;
+  inset: 0;
+  place-self: center;
+  transform: translateY(-15px);
+
+  @media (max-width: $tablet) {
+    width: 53%;
+    height: 53%;
+
+    transform: translateY(0);
+  }
+
+  @media (max-width: $mobile) {
+    transform: translateY(-10px);
+  }
+}
+
+.catalog-section-card__title {
+  font-size: 14px;
+
+  @media (max-width: $tablet) {
+    min-height: 45px;
+    font-size: 12px;
+  }
+}
+
+.catalog-section-card__count {
+  @media (max-width: $tablet) {
+    min-width: 25px;
+    height: 25px;
+
+    &--new {
+      height: 25px;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    min-width: 20px;
+    height: 20px;
+
+    font-size: 10px;
+
+    &--new {
+      height: 20px;
+    }
+  }
+}

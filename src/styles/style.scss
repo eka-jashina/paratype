@@ -1,0 +1,28 @@
+// VENDOR
+@use 'vendor/normalize';
+
+// COMMON
+@use 'common/fonts';
+@use 'common/global';
+
+// BLOCKS
+@use 'blocks/scroll-to-top';
+@use 'blocks/header';
+@use 'blocks/header-sale';
+@use 'blocks/user-nav';
+@use 'blocks/logo';
+@use 'blocks/main-nav';
+@use 'blocks/color-themes';
+@use 'blocks/slider';
+@use 'blocks/banners';
+@use 'blocks/card';
+@use 'blocks/banner';
+@use 'blocks/catalog';
+@use 'blocks/catalog-section-card';
+@use 'blocks/new-fonts';
+@use 'blocks/sorting';
+@use 'blocks/new-font-card';
+@use 'blocks/footer';
+@use 'blocks/footer-menu';
+@use 'blocks/subscribe-form';
+@use 'blocks/socials';

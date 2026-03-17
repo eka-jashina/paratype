@@ -1,0 +1,34 @@
+---
+interface Props {
+  modifier?: string;
+  link: string;
+  title: string;
+  category: string;
+  'count-all': string;
+  'count-new'?: string;
+}
+
+const props = Astro.props;
+const modifier = props.modifier || '';
+const countAll = props['count-all'];
+const countNew = props['count-new'];
+---
+
+<article class={`banners__item banner card slider__slide ${modifier}`}>
+  <a class="banner__link card__link" href={props.link}>
+    <h3 class="banner__title card__title">{props.title}</h3>
+    <p class="banner__description card__description">{props.category}</p>
+    <div class="banner__counts card__counts">
+      <span class="banner__count banner__count--all card__count card__count--all">
+        <span class="visually-hidden">Всего шрифтов в категории</span>
+        {countAll}
+      </span>
+      {countNew && (
+        <span class="banner__count banner__count--new card__count card__count--new">
+          <span class="visually-hidden">Новых шрифтов в категории</span>
+          {countNew}
+        </span>
+      )}
+    </div>
+  </a>
+</article>

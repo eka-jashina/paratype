@@ -1,0 +1,17 @@
+---
+import CatalogSectionCard from './CatalogSectionCard.astro';
+import catalogSectionCards from '../data/catalog-section-cards.json';
+---
+
+<section class="catalog section">
+  <div class="container">
+    <h2 class="visually-hidden">Каталог шрифтов</h2>
+    <ul class="catalog__list scroll-container">
+      {catalogSectionCards.map((card) => (
+        <li class="catalog__item">
+          <CatalogSectionCard {...card} />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

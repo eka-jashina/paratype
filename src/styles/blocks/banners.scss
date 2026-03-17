@@ -1,0 +1,12 @@
+@use '../common' as *;
+
+.banners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: $tablet) {
+    display: flex;
+    gap: 0;
+  }
+}

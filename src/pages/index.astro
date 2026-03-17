@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Promo from '../components/Promo.astro';
+import Catalog from '../components/Catalog.astro';
+import NewFonts from '../components/NewFonts.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base>
+  <Header />
+  <main class="main">
+    <h1 class="visually-hidden">Студия шрифтов Paratype</h1>
+    <Promo />
+    <Catalog />
+    <NewFonts />
+    <Catalog />
+    <ScrollToTop />
+  </main>
+  <Footer />
+</Base>
