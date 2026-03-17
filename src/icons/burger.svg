@@ -1,5 +1,5 @@
 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="20" y="9.16666" width="1.66667" height="20" rx="0.833333" transform="rotate(90 20 9.16666)" fill="#202020"/>
-<rect x="20" y="15.8333" width="1.66667" height="20" rx="0.833334" transform="rotate(90 20 15.8333)" fill="#202020"/>
-<rect x="20" y="2.5" width="1.66667" height="20" rx="0.833333" transform="rotate(90 20 2.5)" fill="#202020"/>
+<rect x="20" y="9.16666" width="1.66667" height="20" rx="0.833333" transform="rotate(90 20 9.16666)" fill="currentColor"/>
+<rect x="20" y="15.8333" width="1.66667" height="20" rx="0.833334" transform="rotate(90 20 15.8333)" fill="currentColor"/>
+<rect x="20" y="2.5" width="1.66667" height="20" rx="0.833333" transform="rotate(90 20 2.5)" fill="currentColor"/>
 </svg>

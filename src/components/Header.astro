@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
 import logoDesktop from '../assets/img/content/paratype-logo-desktop.svg';
 import logoTablet from '../assets/img/content/paratype-logo-tablet.svg';
 ---
@@ -48,21 +47,27 @@ import logoTablet from '../assets/img/content/paratype-logo-tablet.svg';
       <ul class="header__color-themes color-themes" data-da=".main-nav, 680, first, move" aria-label="Управление цветовой темой сайта">
         <li class="color-themes__item">
           <label class="color-themes__button">
-            <Icon name="sun" width="24" height="24" />
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="/sprite.svg#sun"></use>
+            </svg>
             <input class="color-themes__input" type="radio" name="theme-choice" id="light-theme-choice" checked>
             <span class="visually-hidden color-themes__text">Дневная тема</span>
           </label>
         </li>
         <li class="color-themes__item">
           <label class="color-themes__button">
-            <Icon name="moon" width="24" height="24" />
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="/sprite.svg#moon"></use>
+            </svg>
             <input class="color-themes__input" type="radio" name="theme-choice" id="dark-theme-choice">
             <span class="visually-hidden color-themes__text">Ночная тема</span>
           </label>
         </li>
       </ul>
       <a class="header__search" href="#">
-        <Icon name="search" width="24" height="24" />
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <use href="/sprite.svg#search"></use>
+        </svg>
         <span class="visually-hidden">Поиск по сайту</span>
       </a>
     </div>
@@ -76,19 +81,25 @@ import logoTablet from '../assets/img/content/paratype-logo-tablet.svg';
       <ul class="header__user-nav user-nav" data-da=".header__container--nav, 680, last, move">
         <li class="user-nav__item">
           <a class="user-nav__link user-nav__link--favorites" href="#">
-            <Icon name="favorites" width="24" height="24" />
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="/sprite.svg#favorites"></use>
+            </svg>
             <span class="user-nav__count">0</span>
           </a>
         </li>
         <li class="user-nav__item">
           <a class="user-nav__link user-nav__link--cart" href="#">
-            <Icon name="cart" width="24" height="24" />
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="/sprite.svg#cart"></use>
+            </svg>
             <span class="user-nav__count">0</span>
           </a>
         </li>
         <li class="user-nav__item">
           <button class="user-nav__button user-nav__button--profile" type="button">
-            <Icon name="user" width="24" height="24" />
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="/sprite.svg#user"></use>
+            </svg>
             <span class="user-nav__text">мой акканут</span>
           </button>
         </li>
